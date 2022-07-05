@@ -23,7 +23,7 @@ const Universe = () => {
   const handleInactiveClick = (item) => {
     // outputs a message telling the user that catergory is inactive
     setValMessage(
-      `${item} is current inactive. Please select an active catergory.`
+      `${item} is currently inactive. Please select an active catergory.`
     );
   };
 
