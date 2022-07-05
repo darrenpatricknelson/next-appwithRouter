@@ -20,7 +20,7 @@
   color: white;
   text-align: center;
 }
-.btnLoading:hover{
+.btnLoading:hover {
   color: white;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .listContainer:hover {
-  border-left: 10px solid #333;
+  border-left: 10px solid #ff7a59;
   cursor: pointer;
 }
 
