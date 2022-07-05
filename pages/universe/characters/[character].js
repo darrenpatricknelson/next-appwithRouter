@@ -1,26 +1,42 @@
+// imports
 import { withRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import styles from '../../../styles/Characters.module.css';
 import Link from 'next/link';
 
+// this page is dynamic and will display a specific character
+// this page is not as styled as the previous pages
+
+// created an api call function
 export const apiCall = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
+
+  // returns data
   return data;
 };
 
+// created a component using withRouter to grab information from the url/route
 const Characters = withRouter((props) => {
+  // created an id provided by the url/route
   const id = props.router.query.id;
+  // created a state
   const [data, setData] = useState(null);
 
+  // useEffect function will run once onload
   useEffect(() => {
+    // if ID exists
     if (id) {
+      // make an api call using id to get a character specific data return
       const getData = async (id) => {
         const res = await fetch(`https://swapi.dev/api/people/${id}`);
         const data = await res.json();
+
+        // set that data to the state we created above
         setData(data);
       };
 
+      // call the funcion using the id
       getData(id);
     }
   }, []);

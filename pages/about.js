@@ -1,3 +1,5 @@
+// Simple filler page with filler information
+
 const About = () => {
   return (
     <div>

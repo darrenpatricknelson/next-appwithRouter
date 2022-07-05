@@ -1,3 +1,5 @@
+/* just a few styles for the homepage  */
+
 .title {
   color: #333;
   padding-bottom: 20px;
@@ -11,7 +13,7 @@
   width: 150px;
   padding: 8px 0;
   margin: 20px auto;
-  background: #4979ff;
+  background: #FF7A59;
   border-radius: 4px;
   color: white;
   text-align: center;
