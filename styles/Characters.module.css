@@ -11,6 +11,18 @@
   color: white;
   text-align: center;
 }
+.btnLoading {
+  width: 300px;
+  padding: 8px 0;
+  margin: 20px auto;
+  background: #333;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+}
+.btnLoading:hover{
+  color: white;
+}
 
 /* styles for the list */
 .listContainer {

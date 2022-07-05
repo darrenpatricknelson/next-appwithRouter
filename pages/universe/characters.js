@@ -23,7 +23,6 @@ const people = ({ people }) => {
   const [results, setResults] = useState(people.results);
   const [nextPage, setNextPage] = useState(people.next);
   const [prevPage, setPrevPage] = useState(people.prev);
-  const [person, setPerson] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [disable, setDisable] = useState(false);
 
@@ -56,7 +55,7 @@ const people = ({ people }) => {
               key={idx}
             >
               <div className={styles.listContainer}>
-                <p key={idx} value={person} onClick={(e) => setPerson(person)}>
+                <p key={idx} value={person}>
                   {person.name}
                 </p>
               </div>
@@ -86,7 +85,9 @@ const people = ({ people }) => {
               )}
             </div>
             <div className={styles.message}>
-              {isLoading && 'Loading more...'}
+              {isLoading && <>
+                Loading more...  <div className='loader'></div>
+              </>}
             </div>
           </div>
         </div>

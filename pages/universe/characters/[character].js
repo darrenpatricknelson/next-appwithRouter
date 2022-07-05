@@ -28,7 +28,12 @@ const Characters = withRouter((props) => {
   return (
     <div>
       {!data ? (
-        <p>Loading...</p>
+        <div className='loadingContent'>
+            <div className='loader'></div>
+            <Link href="/universe/characters">
+            <a className={styles.btnLoading}>Head back to the Characters page</a>
+          </Link>
+          </div>
       ) : (
         <>
           <h1>{data.name}</h1>

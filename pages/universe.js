@@ -1,16 +1,28 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../styles/Characters.module.css';
+import {useState} from 'react'
 
 const inactiveList = [
-  'Films (Inactive)',
-  'Starships (Inactive)',
-  'Planets (Inactive)',
-  'Species (Inactive)',
-  'Vehicles (Inactive)'
+  'Films',
+  'Starships',
+  'Planets',
+  'Species',
+  'Vehicles'
 ];
 
 const Universe = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [valMessage, setValMessage] = useState('')
+
+  const handleActiveClick = () => {
+    setIsLoading(true);
+  }
+
+  const handleInactiveClick = (item) => {
+    setValMessage(`${item} is current inactive. Please select an active catergory.`);
+  }
+
   return (
     <>
       <Head>
@@ -25,16 +37,22 @@ const Universe = () => {
         <p className={styles.title}>Choose one and happy exploring.</p>
         <Link href="/universe/characters">
           <div className={styles.listContainer}>
-            <p>Characters</p>
+            <p onClick={handleActiveClick}>Characters</p>
           </div>
         </Link>
         {inactiveList.map((item) => {
           return (
             <div className={styles.listContainer}>
-              <p>{item}</p>
+              <p onClick={() => handleInactiveClick(item)}>{item} (Inactive)</p>
             </div>
           );
         })}
+        <div>{valMessage}</div>
+        {isLoading && (
+          <div className='loadingContent'>
+            <div className='loader'></div>
+          </div>
+        )}
       </div>
     </>
   );
