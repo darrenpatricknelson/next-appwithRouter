@@ -3,6 +3,7 @@ import { withRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import styles from '../../../styles/Characters.module.css';
 import Link from 'next/link';
+import Head from 'next/head';
 
 // this page is dynamic and will display a specific character
 // this page is not as styled as the previous pages
@@ -42,16 +43,26 @@ const Characters = withRouter((props) => {
   }, []);
 
   return (
-    <div>
+    <>
       {!data ? (
+        <>
+        {/* custom head tag */}
+      <Head>
+        <title>Starwars API | Loading...</title>
+      </Head>
         <div className='loadingContent'>
             <div className='loader'></div>
             <Link href="/universe/characters">
             <a className={styles.btnLoading}>Head back to the Characters page</a>
           </Link>
           </div>
+          </>
       ) : (
         <>
+        {/* custom head tag */}
+      <Head>
+        <title>Starwars API | {data.name}</title>
+      </Head>
           <h1>{data.name}</h1>
           <p>Height: {data.height}</p>
           <p>Hair color: {data.hair_color}</p>
@@ -69,7 +80,7 @@ const Characters = withRouter((props) => {
           </Link>
         </>
       )}
-    </div>
+    </>
   );
 });
 
